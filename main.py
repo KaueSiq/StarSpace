@@ -6,6 +6,7 @@ tamanho = (960,723)
 branco = (255,255,255)
 tela = pygame.display.set_mode(tamanho)
 pygame.display.set_caption("Star Link")
+fundo = pygame.image.load("fundo.jpg")
 running = True
 estrelas =[]
 while running:
@@ -24,7 +25,8 @@ while running:
 
 
 
-
+    tela.fill(branco)
+    tela.blit(fundo, (0,0))
 
 
 
