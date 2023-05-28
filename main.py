@@ -12,3 +12,13 @@ while running:
             running = False
         elif event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
             running = False
+
+
+
+
+
+    pygame.display.update()
+
+    
+
+pygame.quit()
