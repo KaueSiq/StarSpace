@@ -2,7 +2,7 @@ import pygame
 from  tkinter import simpledialog
 
 pygame.init()
-tamanho = (960,723)
+tamanho = (960,700)
 branco = (255,255,255)
 tela = pygame.display.set_mode(tamanho)
 pygame.display.set_caption("Star Link")
