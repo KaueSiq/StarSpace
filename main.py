@@ -7,6 +7,7 @@ branco = (255,255,255)
 tela = pygame.display.set_mode(tamanho)
 pygame.display.set_caption("Star Link")
 running = True
+estrelas =[]
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
