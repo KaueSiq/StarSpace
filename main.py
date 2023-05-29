@@ -10,7 +10,7 @@ fundo = pygame.image.load("fundo.jpg")
 icone = pygame.image.load("space.png")
 pygame.display.set_icon(icone)
 running = True
-estrelas =[]
+estrelas= {}
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -18,12 +18,14 @@ while running:
         elif event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
             running = False
         elif event.type ==  pygame.MOUSEBUTTONUP:
-            pos = pygame .mouse.get_pos()
+            pos = pygame.mouse.get_pos()
             item = simpledialog.askstring("space ", "Nome da Estrela:")
             print (item)
             if item == None:
-                item = "desconhecido" + str (pos)
+                item = "desconhecido"+str (pos)
             estrelas[item] = pos
+            print (estrelas)
+
 
 
 
