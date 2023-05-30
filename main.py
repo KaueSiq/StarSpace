@@ -11,6 +11,9 @@ icone = pygame.image.load("space.png")
 pygame.display.set_icon(icone)
 running = True
 estrelas= {}
+localizacao = {}
+tela.fill(branco)
+tela.blit(fundo, (0,0))
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -20,6 +23,7 @@ while running:
         elif event.type ==  pygame.MOUSEBUTTONUP:
             pos = pygame.mouse.get_pos()
             item = simpledialog.askstring("space ", "Nome da Estrela:")
+            pygame.draw.circle (tela, branco, (pos),5)
             print (item)
             if item == None:
                 item = "desconhecido"+str (pos)
@@ -29,9 +33,9 @@ while running:
 
 
 
-    tela.fill(branco)
-    tela.blit(fundo, (0,0))
 
+    
+    
 
 
     pygame.display.update()
