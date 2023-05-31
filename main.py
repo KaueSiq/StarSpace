@@ -23,12 +23,14 @@ while running:
         elif event.type ==  pygame.MOUSEBUTTONUP:
             pos = pygame.mouse.get_pos()
             item = simpledialog.askstring("space ", "Nome da Estrela:")
-            pygame.draw.circle (tela, branco, (pos),5)
+            localizacao = pygame.draw.circle (tela, branco, (pos),5)
+            print (localizacao)
             print (item)
             if item == None:
                 item = "desconhecido"+str (pos)
             estrelas[item] = pos
             print (estrelas)
+        
 
 
 
