@@ -5,20 +5,22 @@ pygame.init()
 tamanho = (960,700)
 branco = (255,255,255)
 tela = pygame.display.set_mode(tamanho)
-pygame.display.set_caption("Star Link")
+pygame.display.set_caption("contador Link")
 fundo = pygame.image.load("fundo.jpg")
 icone = pygame.image.load("space.png")
 pygame.display.set_icon(icone)
 running = True
 
 
-star = 0
+contador = 0
 estrelas= {}
 cordenadas= []
 
 
 tela.fill(branco)
 tela.blit(fundo, (0,0))
+
+
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -31,15 +33,14 @@ while running:
             print(cordenadas)   
             item = simpledialog.askstring("space ", "Nome da Estrela:")
             circulo = pygame.draw.circle (tela, branco, (pos),5)
-            print (len,cordenadas)           
-            #cordenadas[-2]
-            if star > 1:
-                linha = pygame.draw.line(tela,branco, (cordenadas[0,1]),5)
+            print (len(cordenadas), cordenadas)
+            contador = contador +1
+            if contador > 1:
+                linha = pygame.draw.line(tela,branco, cordenadas[-1] , cordenadas[-2],5)
+                #linha = pygame.draw.line(tela,branco, tuple (cordenadas[-1] ), tuple (cordenadas[-2]),5)
 
-                #print(star,"erro")
-            star = star +1
-
-            
+                #print(contador,"erro")
+            #contador = contador +1
             print (item)
             if item == None:
                 item = "desconhecido"+str (pos)
