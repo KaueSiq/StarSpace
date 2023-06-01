@@ -34,19 +34,18 @@ while running:
             item = simpledialog.askstring("space ", "Nome da Estrela:")
             circulo = pygame.draw.circle (tela, branco, (pos),5)
             contador = contador +1
-            if contador > 0:
+            if contador > 1:
                 linha = pygame.draw.line(tela,branco, cordenadas[-1] , cordenadas[-2],5)
                 #linha = pygame.draw.line(tela,branco, tuple (cordenadas[-1] ), tuple (cordenadas[-2]),5)
                 #texto = fonte.render(item,True,branco,)
                 #tela.blit (texto,(linha))
-                if event.type ==  pygame.MOUSEBUTTONUP:
-                    texto = fonte.render(item,True,branco,)
-                    tela.blit (texto,(linha))
-
-                    if item == None:
-                        item = "desconhecido"+str (pos)
-                    estrelas[item] = pos
-                    print(estrelas)
+            if event.type ==  pygame.MOUSEBUTTONUP:
+                texto = fonte.render(item,True,branco,)
+                tela.blit (texto,cordenadas[-1])
+                if item == None:
+                    item = "desconhecido"+str (pos)
+                estrelas[item] = pos
+                print(estrelas)
                 
 
 
