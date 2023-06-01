@@ -43,7 +43,7 @@ while running:
                 texto = fonte.render(item,True,branco,)
                 tela.blit (texto,cordenadas[-1])
                 if item == None:
-                    item = "desconhecido"+str (pos)
+                    item = ("desconhecido" + pos)
                 estrelas[item] = pos
                 print(estrelas)
                 
