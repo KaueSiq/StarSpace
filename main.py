@@ -1,3 +1,4 @@
+from types import NoneType
 import pygame
 from  tkinter import simpledialog
 
@@ -32,6 +33,8 @@ while running:
             pos = pygame.mouse.get_pos()
             cordenadas.append(pos) 
             item = simpledialog.askstring("space ", "Nome da Estrela:")
+            if item == '':
+                item = "desconhecido" + str(pos)
             circulo = pygame.draw.circle (tela, branco, (pos),5)
             contador = contador +1
             if contador > 1:
@@ -42,8 +45,8 @@ while running:
             if event.type ==  pygame.MOUSEBUTTONUP:
                 texto = fonte.render(item,True,branco,)
                 tela.blit (texto,cordenadas[-1])
-                if item == None:
-                    item = ("desconhecido" + pos)
+                #if item == '':
+                    #item = "desconhecido" + str(pos)
                 estrelas[item] = pos
                 print(estrelas)
                 
