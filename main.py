@@ -11,6 +11,7 @@ icone = pygame.image.load("space.png")
 pygame.display.set_icon(icone)
 running = True
 
+fonte = pygame.font.Font(None,30)
 
 contador = 0
 estrelas= {}
@@ -29,24 +30,26 @@ while running:
             running = False
         elif event.type ==  pygame.MOUSEBUTTONUP:
             pos = pygame.mouse.get_pos()
-            cordenadas.append(pos)
-            print(cordenadas)   
+            cordenadas.append(pos) 
             item = simpledialog.askstring("space ", "Nome da Estrela:")
             circulo = pygame.draw.circle (tela, branco, (pos),5)
-            print (len(cordenadas), cordenadas)
             contador = contador +1
+
             if contador > 1:
                 linha = pygame.draw.line(tela,branco, cordenadas[-1] , cordenadas[-2],5)
                 #linha = pygame.draw.line(tela,branco, tuple (cordenadas[-1] ), tuple (cordenadas[-2]),5)
+                #texto = fonte.render(item,True,branco,)
+                #tela.blit (texto,(linha))
 
-                #print(contador,"erro")
-            #contador = contador +1
-            print (item)
-            if item == None:
-                item = "desconhecido"+str (pos)
-            estrelas[item] = pos
-            print()
-        
+                if event.type ==  pygame.MOUSEBUTTONUP:
+                    texto = fonte.render(item,True,branco,)
+                    tela.blit (texto,(linha))
+
+                    if item == None:
+                        item = "desconhecido"+str (pos)
+                    estrelas[item] = pos
+                    print(estrelas)
+                
 
 
 
