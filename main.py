@@ -11,7 +11,7 @@ icone = pygame.image.load("space.png")
 pygame.display.set_icon(icone)
 running = True
 
-fonte = pygame.font.Font(None,30)
+fonte = pygame.font.SysFont('Candara',25)
 
 contador = 0
 estrelas= {}
@@ -37,7 +37,7 @@ while running:
             circulo = pygame.draw.circle (tela, branco, (pos),5)
             contador = contador +1
             if contador > 1:
-                linha = pygame.draw.line(tela,branco, cordenadas[-1] , cordenadas[-2],5)
+                linha = pygame.draw.line(tela,branco, cordenadas[-1] , cordenadas[-2],3)
                 #linha = pygame.draw.line(tela,branco, tuple (cordenadas[-1] ), tuple (cordenadas[-2]),5)
                 #texto = fonte.render(item,True,branco,)
                 #tela.blit (texto,(linha))
@@ -46,10 +46,15 @@ while running:
                 tela.blit (texto,cordenadas[-1])
                 estrelas[item] = pos
                 print(estrelas)
-                
 
 
 
+    opcao1 = fonte.render("Pressione F10 para salvar o processo atual",True, branco)
+    opcao2 = fonte.render("Pressione F11 para carregar o processo antigo", True, branco)           
+    opcao3 = fonte.render("Pressione F12 para deletar o processo atual", True, branco)
+    tela.blit(opcao1,(10,10))
+    tela.blit(opcao2,(10,35))
+    tela.blit(opcao3,(10,60))
 
 
     
