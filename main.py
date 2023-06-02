@@ -49,14 +49,8 @@ while running:
                     #item = "desconhecido" + str(pos)
                 estrelas[item] = pos
                 print(estrelas)
-                
 
 
-
-
-
-    
-    
 
 
     pygame.display.update()
