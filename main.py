@@ -1,5 +1,6 @@
 import pygame
 from  tkinter import simpledialog
+from funcoes import historico
 
 pygame.init()
 tamanho = (960,700)
@@ -46,6 +47,7 @@ while running:
                 tela.blit (texto,cordenadas[-1])
                 estrelas[item] = pos
                 print(estrelas)
+            historico(item,pos)
 
 
 
