@@ -48,6 +48,13 @@ while running:
                 estrelas[item] = pos
                 print(estrelas)
             historico(item,pos)
+        
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_F12:
+                    with open("historico.txt", "w") as arquivo:
+                        arquivo.truncate(0)
+                        print("conteudo apagado")
+
 
 
 
@@ -55,6 +62,7 @@ while running:
     opcao1 = fonte.render("Pressione F10 para salvar o processo atual",True, branco)
     opcao2 = fonte.render("Pressione F11 para carregar o processo antigo", True, branco)           
     opcao3 = fonte.render("Pressione F12 para deletar o processo atual", True, branco)
+
     tela.blit(opcao1,(10,10))
     tela.blit(opcao2,(10,35))
     tela.blit(opcao3,(10,60))
