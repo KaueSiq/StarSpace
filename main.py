@@ -54,6 +54,7 @@ while running:
                     with open("historico.txt", "w") as arquivo:
                         arquivo.truncate(0)
                         print("conteudo apagado")
+            
 
 
 
