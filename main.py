@@ -17,6 +17,7 @@ fonte = pygame.font.SysFont('Candara',25)
 contador = 0
 estrelas= {}
 cordenadas= []
+circulos=[]
 
 
 tela.fill(branco)
@@ -35,7 +36,7 @@ while running:
             item = simpledialog.askstring("space ", "Nome da Estrela:")
             if item == '' or item == None:
                 item = "desconhecido" + str(pos)
-            circulo = pygame.draw.circle (tela, branco, (pos),5)
+            ponto = pygame.draw.circle (tela, branco, (pos),5)
             contador = contador +1
             if contador > 1:
                 linha = pygame.draw.line(tela,branco, cordenadas[-1] , cordenadas[-2],3)
@@ -48,12 +49,17 @@ while running:
                 estrelas[item] = pos
                 print(estrelas)
             historico(item,pos)
+            print(ponto)
         
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_F12:   
                     with open("historico.txt", "w") as arquivo:
                         arquivo.truncate(0)
+                        contador=0
+                        item = 0
+                        tela.blit(fundo,(0,0))
                         print("conteudo apagado")
+                        
 
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_F11:
