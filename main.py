@@ -1,3 +1,4 @@
+from multiprocessing.sharedctypes import Value
 import pygame
 from  tkinter import simpledialog
 from funcoes import historico
@@ -15,9 +16,10 @@ running = True
 fonte = pygame.font.SysFont('Candara',25)
 
 contador = 0
-estrelas= {}
-cordenadas= []
-circulos=[]
+estrelas = {}
+cordenadas = []
+circulos = []
+
 
 
 tela.fill(branco)
@@ -40,35 +42,32 @@ while running:
             contador = contador +1
             if contador > 1:
                 linha = pygame.draw.line(tela,branco, cordenadas[-1] , cordenadas[-2],3)
-                #linha = pygame.draw.line(tela,branco, tuple (cordenadas[-1] ), tuple (cordenadas[-2]),5)
-                #texto = fonte.render(item,True,branco,)
-                #tela.blit (texto,(linha))
             if event.type ==  pygame.MOUSEBUTTONUP:
                 texto = fonte.render(item,True,branco,)
                 tela.blit (texto,cordenadas[-1])
                 estrelas[item] = pos
                 print(estrelas)
             historico(item,pos)
-            print(ponto)
-        
+    
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_F12:   
                     with open("historico.txt", "w") as arquivo:
                         arquivo.truncate(0)
-                        contador=0
-                        item = 0
                         tela.blit(fundo,(0,0))
                         print("conteudo apagado")
                         
 
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_F11:
+                    for key, value in estrelas.items():
+                        pygame.draw.circle(tela,branco,value, 5)
+                        pygame.draw.line(tela, branco,value[-1],value[-2],5)
                     print ("historico carregado")
+                
             
                 elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_F10:
                         print ("historico salvo")
-
 
 
     opcao1 = fonte.render("Pressione F10 para salvar o processo atual",True, branco)
