@@ -1,4 +1,3 @@
-from multiprocessing.sharedctypes import Value
 import pygame
 from  tkinter import simpledialog
 from funcoes import historico
@@ -19,7 +18,6 @@ contador = 0
 estrelas = {}
 cordenadas = []
 circulos = []
-
 
 
 tela.fill(branco)
