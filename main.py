@@ -32,7 +32,7 @@ while running:
             running = False
         elif event.type ==  pygame.MOUSEBUTTONUP:
             pos = pygame.mouse.get_pos()
-            cordenadas.append(pos) 
+            cordenadas.append((pos),) 
             item = simpledialog.askstring("space ", "Nome da Estrela:")
             if item == '' or item == None:
                 item = "desconhecido" + str(pos)
@@ -59,7 +59,7 @@ while running:
                 if event.key == pygame.K_F11:
                     for key, value in estrelas.items():
                         pygame.draw.circle(tela,branco,value, 5)
-                        pygame.draw.line(tela, branco,value[-1],value[-2],5)
+                        pygame.draw.line(tela, branco,cordenadas[-1] , cordenadas[-2],3)
                     print ("historico carregado")
                 
             
