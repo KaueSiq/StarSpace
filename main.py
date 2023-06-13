@@ -16,7 +16,7 @@ fonte = pygame.font.SysFont('Candara',25)
 
 contador = 0
 estrelas = {}
-cordenadas = []
+#cordenadas = []
 circulos = []
 
 
@@ -32,7 +32,7 @@ while running:
             running = False
         elif event.type ==  pygame.MOUSEBUTTONUP:
             pos = pygame.mouse.get_pos()
-            cordenadas.append((pos),) 
+            cordenadas.append(pos) 
             item = simpledialog.askstring("space ", "Nome da Estrela:")
             if item == '' or item == None:
                 item = "desconhecido" + str(pos)
@@ -44,7 +44,8 @@ while running:
                 texto = fonte.render(item,True,branco,)
                 tela.blit (texto,cordenadas[-1])
                 estrelas[item] = pos
-                print(estrelas)
+                #print(estrelas)
+                print(cordenadas)
             historico(item,pos)
     
         elif event.type == pygame.KEYDOWN:
@@ -53,14 +54,24 @@ while running:
                         arquivo.truncate(0)
                         tela.blit(fundo,(0,0))
                         print("conteudo apagado")
+                        cordenadas = []
+                        estrelas = {}
+                        contador = 0
                         
 
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_F11:
-                    for key, value in estrelas.items():
-                        pygame.draw.circle(tela,branco,value, 5)
-                        pygame.draw.line(tela, branco,cordenadas[-1] , cordenadas[-2],3)
-                    print ("historico carregado")
+                    try:
+                        for key, value in estrelas.items():
+                            pygame.draw.circle(tela,branco,value, 5)
+                            contador = contador + 1
+                            print(contador)
+                            for value in estrelas.items():
+                                if contador> 1:
+                                    pygame.draw.line(tela, branco,cordenadas[-1] , cordenadas[-2],3)
+                        print ("historico carregado")
+                    except:
+                        print ("voce nn tem um historico salvo")
                 
             
                 elif event.type == pygame.KEYDOWN:
