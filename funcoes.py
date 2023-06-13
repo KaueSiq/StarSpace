@@ -5,8 +5,13 @@ def historico(item,pos):
     arquivo.write (item)
     arquivo.write(",")
     arquivo.write(str(pos))
-    palavra =item.split()
+    palavra = item.split()
     print(palavra)
     arquivo.write ("\n")
 
     arquivo.close
+
+def carregarHistorico ():
+    arquivo= open("historico.txt")
+    lugar=arquivo.readlines
+    print(lugar)
