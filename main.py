@@ -61,7 +61,6 @@ while running:
 
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_F11:
-<<<<<<< Updated upstream
                     try:
                         for key, value in estrelas.items():
                             pygame.draw.circle(tela,branco,value, 5)
@@ -73,17 +72,6 @@ while running:
                         print ("historico carregado")
                     except:
                         print ("voce nn tem um historico salvo")
-=======
-                    for key, value in estrelas.items():
-                        pygame.draw.circle(tela,branco,value, 5)
-                        pygame.draw.line(tela, branco,cordenadas[-1] , cordenadas[-2],3)
-                        #carregarHistorico(item,pos)
-                        arquivo= open("historico.txt","r")
-                        arquivo.readlines
-
-                        print=(carregarHistorico)
-                    print ("historico carregado")
->>>>>>> Stashed changes
                 
             
                 elif event.type == pygame.KEYDOWN:
