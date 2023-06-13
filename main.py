@@ -1,6 +1,6 @@
 import pygame
 from  tkinter import simpledialog
-from funcoes import historico , carregarHistorico
+from funcoes import carregarHistorico, historico
 
 pygame.init()
 tamanho = (960,700)
@@ -16,7 +16,7 @@ fonte = pygame.font.SysFont('Candara',25)
 
 contador = 0
 estrelas = {}
-#cordenadas = []
+cordenadas = []
 circulos = []
 
 
@@ -61,8 +61,9 @@ while running:
 
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_F11:
-<<<<<<< Updated upstream
                     try:
+                        carregarHistorico()
+                        '''
                         for key, value in estrelas.items():
                             pygame.draw.circle(tela,branco,value, 5)
                             contador = contador + 1
@@ -71,19 +72,10 @@ while running:
                                 if contador> 1:
                                     pygame.draw.line(tela, branco,cordenadas[-1] , cordenadas[-2],3)
                         print ("historico carregado")
+                        '''
                     except:
                         print ("voce nn tem um historico salvo")
-=======
-                    for key, value in estrelas.items():
-                        pygame.draw.circle(tela,branco,value, 5)
-                        pygame.draw.line(tela, branco,cordenadas[-1] , cordenadas[-2],3)
-                        #carregarHistorico(item,pos)
-                        arquivo= open("historico.txt","r")
-                        arquivo.readlines
-
-                        print=(carregarHistorico)
-                    print ("historico carregado")
->>>>>>> Stashed changes
+                        
                 
             
                 elif event.type == pygame.KEYDOWN:
