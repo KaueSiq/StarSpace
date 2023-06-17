@@ -22,3 +22,11 @@ x = hist.split("|")
 x3 = x[1]
 x3 = x3.replace('(', '')
 print(x3)
+
+def salvar_posicao (pos):
+    arquivo = open("posicao.txt", "a+")
+    arquivo.write(str(pos))
+    arquivo.write ("\n")
+
+    arquivo.close
+    

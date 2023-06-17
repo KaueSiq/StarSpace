@@ -1,6 +1,6 @@
 import pygame
 from  tkinter import simpledialog
-from funcoes import carregarHistorico, historico
+from funcoes import historico , salvar_posicao
 
 pygame.init()
 tamanho = (960,700)
@@ -47,6 +47,7 @@ while running:
                 #print(estrelas)
                 print(cordenadas)
             historico(item,pos)
+            salvar_posicao(pos)
     
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_F12:   
@@ -61,8 +62,18 @@ while running:
 
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_F11:
+                    with open("posicao.txt","r") as arquivo:
+                            lugar = arquivo.readlines()
+                            print(lugar[-1])
+                            #pygame.draw.circle (tela, branco, (lugar[-1]),5)
+                            #linha_salva=pygame.draw.line(tela,branco, lugar[-1] , lugar[-2],3)
                     try:
-                        carregarHistorico()
+                        #with open("historico.txt","r") as arquivo:
+                            #lugar = arquivo.readlines()
+                            #print(lugar[-1],lugar[-2])
+                            #linha_salva=pygame.draw.line(tela,branco, lugar[-1] , lugar[-2],3)
+                            #for item in arquivo:
+                               
                         '''
                         for key, value in estrelas.items():
                             pygame.draw.circle(tela,branco,value, 5)
