@@ -65,6 +65,13 @@ while running:
                     with open("posicao.txt","r") as arquivo:
                             lugar = arquivo.readlines()
                             print(lugar[-1])
+                    contadorLinhas =0
+                    #for linha in lugar:
+                    if contadorLinhas >= 0:
+                        ponto = pygame.draw.circle (tela, branco, (lugar[-1]),5)
+                        contadorLinhas = contadorLinhas +1
+                                 
+                            #print(lugar[-1])
                             #pygame.draw.circle (tela, branco, (lugar[-1]),5)
                             #linha_salva=pygame.draw.line(tela,branco, lugar[-1] , lugar[-2],3)
                     try:
