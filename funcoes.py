@@ -29,4 +29,14 @@ def salvar_posicao (pos):
     arquivo.write ("\n")
 
     arquivo.close
+
+def conversao(delimitador=','):
+    tuplas = []
+    with open("posicao.txt", 'r') as arquivoP:
+        linhas = arquivoP.readlines()
+        for linha in linhas:
+            elementos = linha.strip().split(delimitador)
+            tuplas.append(tuple(elementos))
+    return tuplas
+
     

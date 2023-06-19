@@ -1,6 +1,6 @@
 import pygame
 from  tkinter import simpledialog
-from funcoes import historico , salvar_posicao
+from funcoes import historico , salvar_posicao, conversao
 
 pygame.init()
 tamanho = (960,700)
@@ -18,6 +18,12 @@ contador = 0
 estrelas = {}
 cordenadas = []
 circulos = []
+nome_arquivo = 'posicao.txt'  # substitua pelo nome do seu arquivo
+tuplas = conversao(nome_arquivo)
+
+# Exemplo de uso:
+for tupla in tuplas:
+    print(tupla)
 
 
 tela.fill(branco)
@@ -53,15 +59,18 @@ while running:
             if event.key == pygame.K_F12:   
                     with open("historico.txt", "w") as arquivo:
                         arquivo.truncate(0)
+                    with open("posicao.txt", "w") as arquivo:
+                        arquivo.truncate(0)
                         tela.blit(fundo,(0,0))
                         print("conteudo apagado")
                         cordenadas = []
-                        estrelas = {}
+                        #estrelas = {}
                         contador = 0
                         
 
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_F11:
+                    '''
                     with open("posicao.txt","r") as arquivo:
                             lugar = arquivo.readlines()
                             print(lugar[-1])
@@ -74,25 +83,26 @@ while running:
                             #print(lugar[-1])
                             #pygame.draw.circle (tela, branco, (lugar[-1]),5)
                             #linha_salva=pygame.draw.line(tela,branco, lugar[-1] , lugar[-2],3)
+                                
                     try:
                         #with open("historico.txt","r") as arquivo:
                             #lugar = arquivo.readlines()
                             #print(lugar[-1],lugar[-2])
                             #linha_salva=pygame.draw.line(tela,branco, lugar[-1] , lugar[-2],3)
                             #for item in arquivo:
-                               
-                        '''
-                        for key, value in estrelas.items():
+                    '''           
+                    #try:    
+                    for key, value in estrelas.items():
                             pygame.draw.circle(tela,branco,value, 5)
                             contador = contador + 1
                             print(contador)
-                            for value in estrelas.items():
-                                if contador> 1:
-                                    pygame.draw.line(tela, branco,cordenadas[-1] , cordenadas[-2],3)
-                        print ("historico carregado")
-                        '''
-                    except:
-                        print ("voce nn tem um historico salvo")
+                            if contador > 1:
+                                for tupla in tuplas:
+                                    pygame.draw.line(tela, branco,tuplas[-1],tuplas[-2],3)
+                    print ("historico carregado")
+                        
+                    #except:
+                        #print ("voce nn tem um historico salvo")
                         
                 
             
