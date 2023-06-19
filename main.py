@@ -11,7 +11,6 @@ fundo = pygame.image.load("fundo.jpg")
 icone = pygame.image.load("space.png")
 pygame.display.set_icon(icone)
 running = True
-
 fonte = pygame.font.SysFont('Candara',25)
 
 contador = 0
@@ -28,14 +27,11 @@ for tupla in tuplas:
 historico2 = {
     
 }
-
 salvarEstrelas = "historico.txt"
 salvar_historico(historico2, salvarEstrelas)
 
-
 tela.fill(branco)
 tela.blit(fundo, (0,0))
-
 
 while running:
     for event in pygame.event.get():
@@ -74,30 +70,8 @@ while running:
                         #estrelas = {}
                         contador = 0
                         
-
             elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_F11:
-                    '''
-                    with open("posicao.txt","r") as arquivo:
-                            lugar = arquivo.readlines()
-                            print(lugar[-1])
-                    contadorLinhas =0
-                    #for linha in lugar:
-                    if contadorLinhas >= 0:
-                        ponto = pygame.draw.circle (tela, branco, (lugar[-1]),5)
-                        contadorLinhas = contadorLinhas +1
-                                 
-                            #print(lugar[-1])
-                            #pygame.draw.circle (tela, branco, (lugar[-1]),5)
-                            #linha_salva=pygame.draw.line(tela,branco, lugar[-1] , lugar[-2],3)
-                                
-                    try:
-                        #with open("historico.txt","r") as arquivo:
-                            #lugar = arquivo.readlines()
-                            #print(lugar[-1],lugar[-2])
-                            #linha_salva=pygame.draw.line(tela,branco, lugar[-1] , lugar[-2],3)
-                            #for item in arquivo:
-                    '''           
+                if event.key == pygame.K_F11:      
                     #try:    
                     for key, value in historico2.items():
                             pygame.draw.circle(tela,branco,value, 5)
@@ -111,12 +85,9 @@ while running:
                     #except:
                         #print ("voce nn tem um historico salvo")
                         
-                
-            
                 elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_F10:
                         print ("historico salvo")
-
 
     opcao1 = fonte.render("Pressione F10 para salvar o processo atual",True, branco)
     opcao2 = fonte.render("Pressione F11 para carregar o processo antigo", True, branco)           
@@ -127,7 +98,5 @@ while running:
     tela.blit(opcao3,(10,60))
 
     pygame.display.update()
-
-    
 
 pygame.quit()
