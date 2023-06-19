@@ -1,6 +1,6 @@
 import pygame
 from  tkinter import simpledialog
-from funcoes import historico , salvar_posicao, conversao
+from funcoes import historico , salvar_posicao, conversao , salvar_historico
 
 pygame.init()
 tamanho = (960,700)
@@ -24,6 +24,13 @@ tuplas = conversao(nome_arquivo)
 # Exemplo de uso:
 for tupla in tuplas:
     print(tupla)
+
+historico2 = {
+    
+}
+
+salvarEstrelas = "historico.txt"
+salvar_historico(historico2, salvarEstrelas)
 
 
 tela.fill(branco)
@@ -92,7 +99,7 @@ while running:
                             #for item in arquivo:
                     '''           
                     #try:    
-                    for key, value in estrelas.items():
+                    for key, value in historico2.items():
                             pygame.draw.circle(tela,branco,value, 5)
                             contador = contador + 1
                             print(contador)

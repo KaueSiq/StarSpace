@@ -39,4 +39,8 @@ def conversao(delimitador=','):
             tuplas.append(tuple(elementos))
     return tuplas
 
-    
+def salvar_historico(estrelas, salvarEstrelas):
+    with open(salvarEstrelas, 'a+') as arquivo:
+        for chave, valor in estrelas.items():
+            linha = f"{chave}:{valor}\n"
+            arquivo.write(linha)   
