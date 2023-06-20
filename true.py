@@ -60,29 +60,18 @@ while running:
                     contador = 0
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_F11:
-                    #arquivo = open ("historico.txt","w")
-                    #arquivo.write(str(estrelas))
-                    '''
-                    for chave , valor in estrelas.items():
-                        linha=chave + ":"+ valor +"\n"
-                        arquivo.write(linha)
-                        print(linha)
-                     '''   
                     arquivo = open("historico.txt","r")
                     dados= arquivo.read()
                     dados=eval(dados)
-                    arquivo.close()
-
-                    '''
-                    estrelas={}
-                    for linha in linhas:
-                        chave, valor = linha.split(":")
-                        estrelas [chave] = valor 
-                    '''
                     print(dados)
+                    arquivo.close()
+                    for key, value in estrelas.items():
+                        pygame.draw.circle(tela,branco,value[-1], 5)
+                        contador = contador + 1
+                        #if contador > 1:
+                                #for i in estrelas:
+                                    #pygame.draw.line(tela, branco,estrelas[i],estrelas[i+1],3)                        
                     print("historico carregado")
-                    #salvar_historico(estrelas,txt)
-                   # print(estrelas)
 
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_F10:
