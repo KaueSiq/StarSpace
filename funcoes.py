@@ -4,7 +4,6 @@ def historico(item,pos):
     arquivo.write(",")
     arquivo.write(str(pos))
     palavra = item.split()
-    print(palavra)
     arquivo.write ("\n")
 
     arquivo.close
@@ -36,11 +35,13 @@ def conversao(delimitador=','):
         linhas = arquivoP.readlines()
         for linha in linhas:
             elementos = linha.strip().split(delimitador)
+            print(elementos)
             tuplas.append(tuple(elementos))
     return tuplas
 
-def salvar_historico(estrelas, salvarEstrelas):
-    with open(salvarEstrelas, 'a+') as arquivo:
-        for chave, valor in estrelas.items():
-            linha = f"{chave}:{valor}\n"
-            arquivo.write(linha)   
+#def salvar_historico(estrelas,txt):
+   # with open(txt, 'a+') as arquivo:
+        #for chave, valor in estrelas.items():
+            #linha = f"{chave}:{valor}\n"
+            #arquivo.write(linha)
+            #arquivo.close()  

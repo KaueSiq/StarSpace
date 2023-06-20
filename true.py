@@ -1,6 +1,6 @@
 import pygame
 from  tkinter import simpledialog
-from funcoes import historico , salvar_posicao, conversao , salvar_historico
+from funcoes import  historico
 
 pygame.init()
 tamanho = (960,700)
@@ -14,21 +14,11 @@ running = True
 fonte = pygame.font.SysFont('Candara',25)
 
 contador = 0
-estrelas = {}
+estrelas={}
 cordenadas = []
-circulos = []
-nome_arquivo = 'posicao.txt'  
-tuplas = conversao(nome_arquivo)
 
-# Exemplo de uso:
-for tupla in tuplas:
-    print(tupla)
-
-historico2 = {
-    
-}
-salvarEstrelas = "historico.txt"
-salvar_historico(historico2, salvarEstrelas)
+txt = "historico.txt"
+#salvar_historico(estrelas, txt)
 
 tela.fill(branco)
 tela.blit(fundo, (0,0))
@@ -53,11 +43,10 @@ while running:
                 texto = fonte.render(item,True,branco,)
                 tela.blit (texto,cordenadas[-1])
                 estrelas[item] = pos
-                #print(estrelas)
+                arquivo = open ("historico.txt","w")
+                arquivo.write(str(estrelas))
                 print(cordenadas)
             historico(item,pos)
-            salvar_posicao(pos)
-    
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_F12:   
                 with open("historico.txt", "w") as arquivo:
@@ -69,28 +58,35 @@ while running:
                     cordenadas = []
                     estrelas = {}
                     contador = 0
-                        
             elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_F11:      
-                    #try:
-                    print("tupla",tuplas)    
-                    for key, value in historico2.items():
-                            pygame.draw.circle(tela,branco,value, 5)
-                            contador = contador + 1
-                            print(contador)
-                            if contador > 1:
-                                for line in historico2:
-                                    pygame.draw.line(tela, branco,tuplas[-1],tuplas[-2],3)
-                    #print (tupla[-1])
-                    print(historico2)
+                if event.key == pygame.K_F11:
+                    #arquivo = open ("historico.txt","w")
+                    #arquivo.write(str(estrelas))
+                    '''
+                    for chave , valor in estrelas.items():
+                        linha=chave + ":"+ valor +"\n"
+                        arquivo.write(linha)
+                        print(linha)
+                     '''   
+                    arquivo = open("historico.txt","r")
+                    dados= arquivo.read()
+                    dados=eval(dados)
+                    arquivo.close()
 
-                        
-                    #except:
-                        #print ("voce nn tem um historico salvo")
-                        
-                elif event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_F10:
-                        print ("historico salvo")
+                    '''
+                    estrelas={}
+                    for linha in linhas:
+                        chave, valor = linha.split(":")
+                        estrelas [chave] = valor 
+                    '''
+                    print(dados)
+                    print("historico carregado")
+                    #salvar_historico(estrelas,txt)
+                   # print(estrelas)
+
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_F10:
+                    print ("historico salvo")
 
     opcao1 = fonte.render("Pressione F10 para salvar o processo atual",True, branco)
     opcao2 = fonte.render("Pressione F11 para carregar o processo antigo", True, branco)           
