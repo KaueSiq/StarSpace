@@ -63,14 +63,22 @@ while running:
                     arquivo = open("historico.txt","r")
                     dados= arquivo.read()
                     dados=eval(dados)
-                    print(dados)
                     arquivo.close()
-                    for key, value in estrelas.items():
-                        pygame.draw.circle(tela,branco,value[-1], 5)
+                    cordenada=list(dados.values())
+                    for i in range(len(cordenada) - 1):
+                        cordAtual = cordenada[i]
+                        cordProx = cordenada[i+1]
+                        print("cord atual" + str(cordAtual))
+                        print("cord prox" + str(cordProx))
+                    for key, value in dados.items():
+                        pygame.draw.circle(tela,branco,value, 5)
+                        pygame.display.flip()
                         contador = contador + 1
-                        #if contador > 1:
-                                #for i in estrelas:
-                                    #pygame.draw.line(tela, branco,estrelas[i],estrelas[i+1],3)                        
+                        print(contador)
+                        #print(key)
+                        if contador > 1:
+                            for value in dados.items():
+                                pygame.draw.line(tela, branco,cordAtual,cordProx,3)                        
                     print("historico carregado")
 
             elif event.type == pygame.KEYDOWN:
