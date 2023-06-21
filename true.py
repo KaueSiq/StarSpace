@@ -64,21 +64,21 @@ while running:
                     dados= arquivo.read()
                     dados=eval(dados)
                     arquivo.close()
-                    cordenada=list(dados.values())
-                    for i in range(len(cordenada) - 1):
-                        cordAtual = cordenada[i]
-                        cordProx = cordenada[i+1]
-                        print("cord atual" + str(cordAtual))
-                        print("cord prox" + str(cordProx))
+                    ponto=list(dados.values())
                     for key, value in dados.items():
                         pygame.draw.circle(tela,branco,value, 5)
                         pygame.display.flip()
                         contador = contador + 1
-                        print(contador)
+                        print(value)
                         #print(key)
+                    for i in range(len(ponto) - 1):
+                        cordAtual = ponto[i]
+                        cordProx = ponto[i+1]
+                        print("cord atual" + str(cordAtual))
+                        #print("cord prox" + str(cordProx))
                         if contador > 1:
-                            for value in dados.items():
-                                pygame.draw.line(tela, branco,cordAtual,cordProx,3)                        
+                            pygame.draw.line(tela, branco,cordAtual,cordProx,3)
+                            pygame.display.flip()                        
                     print("historico carregado")
 
             elif event.type == pygame.KEYDOWN:
