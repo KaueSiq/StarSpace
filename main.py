@@ -30,12 +30,14 @@ while running:
             pos = pygame.mouse.get_pos()
             cordenadas.append(pos) 
             item = simpledialog.askstring("space ", "Nome da Estrela:")
-            if item == '' or item == None:
+            if item == '':
                 item = "desconhecido" + str(pos)
+            if item == None:
+                break
             ponto = pygame.draw.circle (tela, branco, (pos),5)
             contador = contador +1
             if contador > 1:
-                linha = pygame.draw.line(tela,branco, cordenadas[-1] , cordenadas[-2],3)
+                linha = pygame.draw.line(tela,branco, cordenadas[-1], cordenadas[-2],3)
             if event.type ==  pygame.MOUSEBUTTONUP:
                 texto = fonte.render(item,True,branco)
                 tela.blit (texto,cordenadas[-1])
@@ -69,6 +71,8 @@ while running:
                         for i in range(len(ponto) - 1):
                             cordAtual = ponto[i]
                             cordProx = ponto[i+1]
+                            cordenadas.append(cordAtual)
+                            cordenadas.append(cordProx)
                             if contador > 1:
                                 pygame.draw.line(tela, branco,cordAtual,cordProx,3)
                                 pygame.display.flip()                        
