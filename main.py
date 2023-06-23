@@ -1,4 +1,5 @@
 import pygame
+import random
 from  tkinter import simpledialog
 from funcoes import  historico
 
@@ -7,7 +8,10 @@ tamanho = (960,700)
 branco = (255,255,255)
 tela = pygame.display.set_mode(tamanho)
 pygame.display.set_caption("contador Link")
-fundo = pygame.image.load("fundo.jpg")
+fundo1 = pygame.image.load("fundo.jpg")
+fundo2 = pygame.image.load("Shark_Nebula.jpg")
+fundo3 = pygame.image.load("fundo3.jpg")
+fundos = random.choice([fundo1, fundo2, fundo3])
 icone = pygame.image.load("space.png")
 pygame.display.set_icon(icone)
 running = True
@@ -18,7 +22,7 @@ estrelas={}
 cordenadas = []
 
 tela.fill(branco)
-tela.blit(fundo, (0,0))
+tela.blit(fundos, (0,0))
 
 while running:
     for event in pygame.event.get():
@@ -49,7 +53,7 @@ while running:
             if event.key == pygame.K_F12:   
                 with open("historico.txt", "w") as arquivo:
                     arquivo.truncate(0)
-                    tela.blit(fundo,(0,0))
+                    tela.blit(fundo1,(0,0))
                     print("conteudo apagado")
                     cordenadas = []
                     estrelas = {}
