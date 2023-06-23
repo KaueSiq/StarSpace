@@ -1,5 +1,6 @@
 import pygame
 import random
+import ast
 from  tkinter import simpledialog
 from funcoes import  historico
 
@@ -48,6 +49,17 @@ while running:
                 estrelas[item] = pos
                 arquivo = open ("historico.txt","w")
                 arquivo.write(str(estrelas))
+                else estrelas 
+                #try:
+                    #with open("historico.txt","r") as arquivo:
+                   #     conteudo= arquivo.read()
+                  #      dicionarioExistente=ast.literal_eval(conteudo)
+                #except:
+                  #  dicionarioExistente={}
+                #dicionarioExistente.update(estrelas)
+                #with open("historico.txt","w") as arquivo:
+                  #  arquivo.write(str(dicionarioExistente))
+                    
             historico(item,pos)
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_F12:   
