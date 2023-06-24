@@ -1,9 +1,11 @@
 import pygame
 import random
+import pygame.mixer
 from  tkinter import simpledialog
 from funcoes import  historico
 
 pygame.init()
+pygame.mixer.init()
 tamanho = (960,700)
 branco = (255,255,255)
 tela = pygame.display.set_mode(tamanho)
@@ -15,6 +17,7 @@ fundos = random.choice([fundo1, fundo2, fundo3])
 icone = pygame.image.load("space.png")
 pygame.display.set_icon(icone)
 fonte = pygame.font.SysFont('Candara',25)
+som= pygame.mixer.Sound("interstellar.mp3")
 
 contador = 0
 estrelas={}
@@ -92,7 +95,8 @@ while running:
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_F10:
                     print ("historico salvo")
-
+    
+    som.play()
     opcao1 = fonte.render("Pressione F10 para salvar o processo atual",True, branco)
     opcao2 = fonte.render("Pressione F11 para carregar o processo antigo", True, branco)           
     opcao3 = fonte.render("Pressione F12 para deletar o processo atual", True, branco) 
