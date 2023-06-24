@@ -1,6 +1,5 @@
 import pygame
 import random
-import ast
 from  tkinter import simpledialog
 from funcoes import  historico
 
@@ -15,7 +14,6 @@ fundo3 = pygame.image.load("fundo3.jpg")
 fundos = random.choice([fundo1, fundo2, fundo3])
 icone = pygame.image.load("space.png")
 pygame.display.set_icon(icone)
-running = True
 fonte = pygame.font.SysFont('Candara',25)
 
 contador = 0
@@ -25,6 +23,7 @@ cordenadas = []
 tela.fill(branco)
 tela.blit(fundos, (0,0))
 
+running = True
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
